@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.jinlibrary</groupId>
-  <artifactId>mybatis</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>org.jinlibrary</groupId>
+ <artifactId>mybatis</artifactId>
+ <packaging>war</packaging>
+ <version>0.0.1-SNAPSHOT</version>
 
-  <name>mybatis Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+ <name>mybatis Maven Webapp</name>
+ <url>http://maven.apache.org</url>
 
-  <properties>
+ <properties>
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <junit.version>4.12</junit.version>
   <log4j.version>2.8.1</log4j.version>
@@ -204,6 +204,7 @@
     <filtering>true</filtering>
    </resource>
 
+
    <resource>
     <directory>src/main/resources</directory>
     <includes>
@@ -214,4 +215,30 @@
    </resource>
   </resources>
  </build>
+
+ <profiles>
+  <profile>
+   <id>develope</id>
+   <activation>
+    <activeByDefault>true</activeByDefault>
+   </activation>
+   <properties>
+    <profiles.active>develope</profiles.active>
+   </properties>
+  </profile>
+
+  <profile>
+   <id>test</id>
+   <properties>
+    <profiles.active>test</profiles.active>
+   </properties>
+  </profile>
+
+  <profile>
+   <id>publish</id>
+   <properties>
+    <profiles.active>publish</profiles.active>
+   </properties>
+  </profile>
+ </profiles>
 </project>
