@@ -22,6 +22,9 @@ import org.apache.ibatis.type.Alias;
 @Alias("userInfo")
 public class UserInfo {
 
+  /**
+   * userId
+   */
   private Integer userId;
 
   private String userName;
