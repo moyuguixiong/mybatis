@@ -7,6 +7,8 @@
  */
 package org.jinlibrary.mybatis.po;
 
+import java.util.Date;
+
 import org.apache.ibatis.type.Alias;
 
 /**
@@ -22,33 +24,44 @@ import org.apache.ibatis.type.Alias;
 @Alias("userInfo")
 public class UserInfo {
 
-  private Integer userId;
+  private Integer id;
 
-  private String userName;
+  private String name;
 
-  private String password;
+  private Integer age;
 
-  public Integer getUserId() {
-    return userId;
+  private Date birthday;
+
+  public Integer getId() {
+    return id;
   }
 
-  public void setUserId(Integer userId) {
-    this.userId = userId;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
-  public String getUserName() {
-    return userName;
+  public String getName() {
+    return name;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public String getPassword() {
-    return password;
+  public Integer getAge() {
+    return age;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setAge(Integer age) {
+    this.age = age;
   }
+
+  public Date getBirthday() {
+    return birthday;
+  }
+
+  public void setBirthday(Date birthday) {
+    this.birthday = birthday;
+  }
+
 }

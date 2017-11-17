@@ -59,7 +59,7 @@ public class TestForConfiguration {
   }
 
   @Test
-  public void testForSqlSession() throws IOException {
+  public void testForSqlSession() throws Exception {
 
     InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
     SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
@@ -73,9 +73,9 @@ public class TestForConfiguration {
     if (list != null) {
       if (list.size() > 0) {
         UserInfo userInfo = list.get(0);
-        System.out.println(userInfo.getUserId());
-        System.out.println(userInfo.getUserName());
-        System.out.println(userInfo.getPassword());
+        System.out.println(userInfo.getId());
+        System.out.println(userInfo.getName());
+        System.out.println(userInfo.getBirthday());
       }
     }
     System.out.println(UserInfo.class.getClassLoader());

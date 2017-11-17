@@ -7,6 +7,8 @@
  */
 package org.jinlibrary.mybatis.daointerface;
 
+import java.util.List;
+
 import org.jinlibrary.mybatis.po.UserInfo;
 
 /**
@@ -21,5 +23,7 @@ import org.jinlibrary.mybatis.po.UserInfo;
  */
 public interface UserInfoDao {
 
-  UserInfo findByUserId(int userId) throws Exception;
+  List<UserInfo> findByUserId(Integer id) throws Exception;
+
+  List<UserInfo> findAll() throws Exception;
 }

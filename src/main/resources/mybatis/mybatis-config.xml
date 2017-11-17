@@ -19,7 +19,7 @@
 
  <plugins>
   <plugin interceptor="org.jinlibrary.mybatis.plugin.MyPluginForStatementHandler"></plugin>
-  <plugin interceptor="org.jinlibrary.mybatis.plugin.MyPlugin"></plugin>
+  <!-- <plugin interceptor="org.jinlibrary.mybatis.plugin.MyPlugin"></plugin> -->
  </plugins>
 
 <!--  <environments default="develope">

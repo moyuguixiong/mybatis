@@ -104,6 +104,6 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <entry key="dataSource_w" value-ref="dataSource_w" />
    </map>
   </property>
-  <property name="defaultTargetDataSource" ref="dataSource_r" />
+  <property name="defaultTargetDataSource" ref="dataSource_w" />
  </bean>
 </beans>

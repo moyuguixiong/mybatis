@@ -7,10 +7,13 @@
  */
 package mybatis;
 
-import org.apache.ibatis.reflection.MetaObject;
-import org.apache.ibatis.reflection.SystemMetaObject;
+import java.util.List;
+
 import org.jinlibrary.mybatis.daointerface.UserInfoDao;
+import org.jinlibrary.mybatis.plugin.Page;
+import org.jinlibrary.mybatis.plugin.PageHelper;
 import org.jinlibrary.mybatis.po.UserInfo;
+import org.jinlibrary.mybatis.service.UserInfoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,20 +36,35 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class TestForScannerDao {
 
   @Autowired
-  @Qualifier("userInfoDao")
+  private UserInfoService userInfoService;
+
+  @Autowired
   private UserInfoDao userInfoDao;
 
   @Test
   public void test() throws Exception {
 
-    MetaObject metaUserInfoDao = SystemMetaObject.forObject(userInfoDao);
-    if (metaUserInfoDao.hasGetter("h")) {
-      Object proxy = metaUserInfoDao.getValue("h");
-      System.out.println("代理的类型：" + proxy.getClass().getName());
+    // MetaObject metaUserInfoDao = SystemMetaObject.forObject(userInfoDao);
+    // if (metaUserInfoDao.hasGetter("h")) {
+    // Object proxy = metaUserInfoDao.getValue("h");
+    // System.out.println("代理的类型：" + proxy.getClass().getName());
+    // }
+    List<UserInfo> userInfos = userInfoService.findByPage(2, 2);
+    if (userInfos != null && userInfos.size() > 0) {
+      for (UserInfo userInfo : userInfos) {
+        System.out.println(userInfo.getName());
+      }
     }
-    UserInfo userInfo = userInfoDao.findByUserId(1);
-    if (userInfo != null) {
-      System.out.println(userInfo.getUserName());
+
+    Page page = new Page();
+    page.setCurrPage(1);
+    page.setPageSize(2);
+    PageHelper.setPage(page);
+    List<UserInfo> findAll = userInfoDao.findAll();
+    if (findAll != null) {
+      for (UserInfo userInfo : findAll) {
+        System.out.println(userInfo.getName());
+      }
     }
   }
 }
